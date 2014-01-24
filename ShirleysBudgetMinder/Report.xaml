@@ -1,0 +1,17 @@
+﻿<Window x:Class="ShirleysBudgetMinder.Report"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Report" Height="600" Width="900" Background="BlanchedAlmond">
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <ScrollViewer MinHeight="100" MaxHeight="500" VerticalAlignment="Stretch" Name="scrollReport">
+                <WrapPanel Name="wpReport" Width="700"></WrapPanel>
+            </ScrollViewer>
+            <Button Content="OK" Margin="50,20,5,5" Name="btnReportOK" Padding="5" Height="30" Width="50"  Click="btnReportOK_Click" 
+                                IsEnabled="True" ToolTip="Close this report" ToolTipService.ShowDuration="10000"/>
+            <Button Content="Print" Margin="50,20,5,5" Name="btnPrintReport" Padding="5" Height="30" Width="50"  Click="btnPrintReport_Click" 
+                                IsEnabled="True" ToolTip="Print this report" ToolTipService.ShowDuration="10000"/>
+
+        </StackPanel>
+    </Grid>
+</Window>

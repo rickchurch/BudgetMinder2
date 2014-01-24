@@ -1,0 +1,155 @@
+﻿<Window x:Class="ShirleysBudgetMinder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Shirleys Budget Minder" Height="730" Width="750" Background="LightCyan">
+
+    <Grid MinWidth="0" MinHeight="0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <!--  Row 1 - Date, Payee, Amt -->
+        <StackPanel DockPanel.Dock="top" Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top" Margin="20,30,10,10">
+            <!--  DATE -->
+            <!--Border element can only contain one element (use a panel to enclose mulitple elements) -->
+            <Border BorderThickness="1" BorderBrush="Black" Name="brdr1a" Background="Aquamarine">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" >
+                    <Label Name="lbl_Date" FontSize="18" Margin="5" >Date: </Label>
+                    <TextBox Margin="10" VerticalAlignment="Center" FontSize="18" MinWidth="90" MaxWidth="150" Name="tbTranDate" 
+                                                                        TextChanged="tbTranDate_TextChanged">
+                        YYYY-MMMM-DD
+                    </TextBox>
+                    <DatePicker Height="25" Width="25" HorizontalAlignment="Left" Margin="5" Name="dpTran" Text="Set"
+                                         SelectedDateChanged="dpTran_SelectedDateChanged" VerticalAlignment="Center" />
+                </StackPanel>
+            </Border>
+
+            <!--  PAYEE -->
+            <Border BorderThickness="1" BorderBrush="Black"  Margin="25,5,5,5" Name="brdr1b" Background="Aquamarine">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Name="lbl_Payee" FontSize="18" Margin="5">Payee:</Label>
+                    <ComboBox Height="23" Width="150" Margin="5" Name="comboBoxPayee" SelectionChanged="comboBoxPayee_SelectionChanged" 
+                                                                             IsReadOnly="False" IsEditable="True" VerticalAlignment="Center">
+                        <ComboBoxItem IsSelected="True" />
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+            <!--  AMOUNT -->
+            <Border BorderThickness="1" BorderBrush="Black"  Margin="25,5,5,5" Name="brdr1c" Background="Aquamarine">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Name="lbl_Amt" FontSize="18" Margin="5">Amt: $ </Label>
+                    <TextBox Margin="10" FontSize="18" MinWidth="70" MaxWidth="150" Name="tbAmt"  HorizontalContentAlignment="Right"></TextBox>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+
+        <!--  Row 2 - Transactn num, Notes, Category -->
+        <StackPanel DockPanel.Dock="top" Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Top" Margin="20,30,10,10">
+            
+            <!--  Transactn num -->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Background="Aquamarine">
+                <Label Name="lbl_TrnsactnNum" FontSize="12" Margin="5">ID: </Label>
+                <TextBlock Margin="3,5,5,5" FontSize="12" MaxWidth="150" Name="tbTrnNum" VerticalAlignment="Center">001</TextBlock>
+            </StackPanel>
+
+            <!--  NOTES -->
+            <Border BorderThickness="1" BorderBrush="Black"  Margin="25,5,5,5" Name="brdr2a" Background="Aquamarine">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Name="lbl_Notes" FontSize="18" Margin="5">Notes: </Label>
+                    <TextBox Margin="3,5,5,5" FontSize="12"  MinWidth="40" MaxWidth="100" Name="tbNote" VerticalAlignment="Center" IsEnabled="True"></TextBox>
+                </StackPanel>
+            </Border>
+
+            <!--  CATEGORY -->
+            <!--Border element can only contain one element (use a panel to enclose mulitple elements) -->
+            <Border BorderThickness="1" BorderBrush="Black"  Margin="25,5,5,5" Name="brdr2b" Background="Aquamarine">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Name="lbl_Category" FontSize="18" Margin="5">Category: $</Label>
+                    <ComboBox Height="23" Width="160" Margin="5" Name="comboBoxCategory" SelectionChanged="comboBoxCategory_SelectionChanged" 
+                                                                                      IsReadOnly="False" IsEditable="True" VerticalAlignment="Center">
+                        <ComboBoxItem IsSelected="True" />
+                    </ComboBox>
+                    <Label Name="lbl_noChgAssoc" FontSize="12" Margin="5" VerticalAlignment="Center">Don't Assoc </Label>
+                    <CheckBox Name="chkBoxNoChgAssoc" VerticalAlignment="Center" Margin="5"></CheckBox>
+                </StackPanel>
+            </Border>
+
+        </StackPanel>
+
+        <!--  Row 3 -  Button stack -->
+        <StackPanel Grid.Row="2" Grid.Column="0"  Margin="20,30,5,5" Orientation="Horizontal" VerticalAlignment="Center">
+            <Button Content="Exit" Margin="50,5,5,5" Name="btnExit" Padding="5" Height="50" Width="50"  Click="btnExit_Click" 
+                                IsEnabled="True" ToolTip="Close this program" ToolTipService.ShowDuration="10000"/>
+            <Button Content="Save Record" Margin="50,5,5,5" Name="btnSaveRec" Padding="5" Height="50" Width="100"  Click="btnSaveRec_Click" 
+                                IsEnabled="True" ToolTip="Save this record to database" ToolTipService.ShowDuration="10000"/>
+            <Button Content="Display Report" Margin="50,5,5,5" Name="btnDisplayReport" Padding="5" Height="50" Width="100"  Click="btnDisplayReport_Click" 
+                                IsEnabled="True" ToolTip="Display report for current month" ToolTipService.ShowDuration="10000"/>
+            <Button Content="Display Log File" Margin="50,5,5,5" Name="btnDisplayLog" Padding="5" Height="50" Width="100"  Click="btnDisplayLog_Click" 
+                                IsEnabled="True" ToolTip="Display log File" ToolTipService.ShowDuration="10000"/>
+        </StackPanel>
+
+
+        <!--  Row 4 -  TRANSACTION MONTH & ENDING DATE -->
+        <Border Grid.Row="3" Grid.Column="0"  Margin="20,30,5,5" BorderThickness="1" BorderBrush="Black"  Name="brdr4a" Background="Aquamarine">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Label Name="lbl_TrnsActn" FontSize="12" Margin="20,5,5,5">Transaction  Month</Label>
+                <Label Name="lbl_MonthEndingDate" FontSize="12" Margin="30,5,2,5">Month ending date: </Label>
+                <TextBox Margin="5" VerticalAlignment="Center" FontSize="12"  MinWidth="90" MaxWidth="150" Name="tbMonthEndingDate" TextChanged="tbMonthEndingDate_TextChanged">
+                   YYYY-MMMM-DD
+                </TextBox>
+                <DatePicker Height="25" Width="25" HorizontalAlignment="Left" Margin="5" Name="dpMonthEnd" Text="Set"
+                                                 SelectedDateChanged="dpMonthEnd_SelectedDateChanged" VerticalAlignment="Center" />
+                <TextBlock Name="textBlk_StartFlag" VerticalAlignment="Center" FontSize="16" FontWeight="Bold" Margin="10,2,2,2"></TextBlock>
+                <Button Content="Help" Margin="20,2,2,2" Name="btnMoEndHelp" Height="25" Width="40" Click="btnMoEndHelp_Click" 
+                                IsEnabled="True" ToolTip="Show me existing months" ToolTipService.ShowDuration="10000"/>
+            </StackPanel>
+        </Border>
+        
+        <!--   Row 5 -   HISTORY -->
+        <Border Grid.Row="4" Grid.Column="0" BorderThickness="1" BorderBrush="Black"  Margin="20,30,5,5" Name="brdr5a">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                    <!-- new stack panel for sort buttons -->
+                    <Label Name="lbl_SortBy"  Content="Sort By:" FontSize="12" Margin="5" FontWeight="Bold"></Label>
+                    <Button Content="Payee" Margin="5,5,10,5" Name="btnSortByPayee" Padding="2" Height="20" Width="40"  Click="btnSortByPayee_Click" 
+                                IsEnabled="True" ToolTip="Sort transactions by PAYEE" ToolTipService.ShowDuration="10000"/>
+                    <Button Content="Date" Margin="5,5,10,5" Name="btnSortByDate" Padding="2" Height="20" Width="40"  Click="btnSortByDate_Click" 
+                                IsEnabled="True" ToolTip="Sort transactions by DATE" ToolTipService.ShowDuration="10000"/>
+                    <Button Content="TransId" Margin="5,5,50,5" Name="btnSortByTransId" Padding="2" Height="20" Width="50"  Click="btnSortByTransId_Click" 
+                                IsEnabled="True" ToolTip="Sort transactions by DATE" ToolTipService.ShowDuration="10000"/>
+                </StackPanel>
+                <Label Name="lbl_HistoryHdr" FontSize="12" Margin="5" FontWeight="Bold"></Label>
+                <ScrollViewer MinHeight="100" MaxHeight="120" VerticalAlignment="Stretch" Name="scrollHistory">
+                    <WrapPanel Name="wpHistory" MaxWidth="700" >
+                        <!--PreviewMouseLeftButtonUp="wpHistory_MouseLeftButtonUp"-->
+
+                    </WrapPanel>
+                </ScrollViewer>
+            </StackPanel>
+        </Border>
+
+        <!--   Row 6 -   CATEGORY TOTALS -->
+        <Border Grid.Row="5" Grid.Column="0" BorderThickness="1" BorderBrush="Black"  Margin="20,30,5,5" Name="brdr6A" Background="Aquamarine">
+            <WrapPanel Name="wpCategoryTotals" MaxWidth="700">
+                
+            </WrapPanel>
+        </Border>
+
+    </Grid>
+</Window>

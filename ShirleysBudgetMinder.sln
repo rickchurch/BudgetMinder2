@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C# Express 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShirleysBudgetMinder", "ShirleysBudgetMinder\ShirleysBudgetMinder.csproj", "{B537B8A8-794D-4F7D-A554-9899FF56FB18}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B537B8A8-794D-4F7D-A554-9899FF56FB18}.Debug|x86.ActiveCfg = Release|x86
+		{B537B8A8-794D-4F7D-A554-9899FF56FB18}.Debug|x86.Build.0 = Release|x86
+		{B537B8A8-794D-4F7D-A554-9899FF56FB18}.Release|x86.ActiveCfg = Release|x86
+		{B537B8A8-794D-4F7D-A554-9899FF56FB18}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
